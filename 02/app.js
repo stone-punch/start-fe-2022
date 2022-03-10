@@ -1,3 +1,4 @@
+/*
 //이름 찍기
 var name = 'aj';
 
@@ -46,3 +47,42 @@ for (var i = 0; i < arr.length; i++) {
   }
 
 
+//배열 CRUD
+
+//create
+var article = {
+    title:'제목1',
+    url:'asdaad',
+};
+var articles = [article];
+console.log(articles);
+
+var todos = ['운동'];
+
+var todo = '게임';
+todos.push(todo);
+
+console.log(todos);
+
+todos.forEach(function(todo){
+    console.log(todo);
+})
+
+
+// update
+var updateTodo = '게임';
+var updateIndex = todos.findIndex(function(todo){
+    return todo === updateTodo;
+})
+
+console.log(updateIndex);
+todos[updateIndex] = '공부';
+console.log(todos);
+*/
+//delete
+var todos = ['운동', '공부'];
+var deleteTodo = '공부';
+var newTodos = todos.filter(function(todo) {
+  return todo !== deleteTodo;
+});
+console.log(newTodo);
