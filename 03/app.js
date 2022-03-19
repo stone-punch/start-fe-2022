@@ -159,6 +159,7 @@ copy = [...array];
 b[0] = 100;
 */
 
+/*
 var todos = ['운동'];
 
 function array_create(array, content){
@@ -181,4 +182,52 @@ function array_delete(del){
 }
 
 
+*/
 
+/*
+var count = [10,20,30,40,50,60,70,100];
+var sum = 0;
+for (var i = 0; i < count.length; i++){
+    sum = sum + count[i];
+}
+var avr = sum/count.length;
+console.log(avr);
+
+
+function  times_table(){
+    for (var i = 2; i < 10; i++){
+        for (var j = 2; j < 10; j++){
+            msg = 
+            console.log(i + "X" + j + "=" + i*j);
+        }
+        console.log('---------------');
+    }
+}
+
+times_table();
+
+var me = {
+    age: 25,
+    walking: function(){
+        console.log("뚜벅뚜벅");
+    },
+};
+
+me.walking();
+*/
+/*
+var sum = 0;
+var count = 0;
+for(var i=0; i<6; i++){
+    var count = prompt('숫자를 입력해주세요');
+    sum = sum + count;
+}
+alert(sum);
+*/
+var sum = 0;
+var count = 0;
+for(var i=0; i<5; i++){
+    var count = prompt('숫자를 입력해주세요');
+    sum = sum + Number(count);
+}
+alert('숫자의 합 = ' + sum);
