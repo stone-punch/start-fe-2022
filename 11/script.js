@@ -1,8 +1,12 @@
-const url = `https://dapi.kakao.com/v2/search/web?query=#query&page=1`;
+//const url = `https://dapi.kakao.com/v2/search/web?query=#query&page=2`;
+let page_num = 1;
+
 const $docs = document.querySelector('.docs');
 //const $query = document.querySelector('#query');
 const $search_btn = document.querySelector('#search_btn');
 const $query = document.querySelector('[name="query"]');
+
+const $more_btn = document.querySelector('#more_btn');
 
 const $searchFoarm = document.querySelector('#searchFoarm');
 
@@ -16,9 +20,12 @@ function getFetch(url, callback) {
       .then((data) => callback(data));
   }
   
-function search() {
+function search(page) {
     const query = $query.value;
-    const search_url = url.replace('#query',query);
+
+    const search_url = `https://dapi.kakao.com/v2/search/web?query=${query}&page=${page}`;
+    //const search_url = url.replace('#query',query);
+   // const url = `https://dapi.kakao.com/v2/search/web?query=${query}&page=${page_num}`;
 
     getFetch(search_url, (data) => {
         const { documents } = data;
@@ -28,7 +35,7 @@ function search() {
             //console.log(document);
             return document.contents;
         });
-        $docs.innerHTML = docs.join('<hr>');
+        $docs.innerHTML += docs.join('<hr>');
     });
 }
  /*  
@@ -40,7 +47,15 @@ $query.addEventListener('keydown',()=>{
 });
 */
 
+function more_page(){
+    page_num ++;
+    search(page_num);
+
+}
+
+$more_btn.addEventListener('click',more_page);
+
 $searchFoarm.addEventListener('submit',(event)=>{
-    search();
+    search(page_num);
     event.preventDefault();
 });
